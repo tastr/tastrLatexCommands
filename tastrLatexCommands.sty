@@ -1,0 +1,245 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Load packages - useful packages, adapt to your own needs
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% input encoding - UTF8 or latin1 allow directly typing german umlauts
+% make sure the file encoding of all files matches this encoding!
+\usepackage[utf8]{inputenc}
+% font enconding - do not change this unless you exactly know what you're doing!
+\usepackage[T1]{fontenc}
+
+
+
+% automatically use correct quotes for the current language: \enquote{text in quotes}
+\usepackage{csquotes}
+\MakeAutoQuote{»}{«}  % input »text in quotes« is equivalent to \enquote{text in quotes}
+\let\q=\enquote 			% use \q{text in quotes}, which is shorter than \enquote{text in quotes}
+
+% better math-commands (e.q.: \dddots, \eqref{})
+\usepackage{amsmath,amssymb}                                 
+
+% better-looking rules in tabulars, \toprule, \midrule, \bottomrule
+\usepackage{booktabs}
+
+% use consistent style for units (upright shape)
+% \unit[value]{unit}, \unitfrac[value]{unit_numerator}{unit_denominator}
+\usepackage{units}
+\usepackage{tcolorbox} 
+\usepackage[makeroom]{cancel}
+% tables with fixed table width 
+\usepackage{tabularx, tabulary}
+% improve ragged right alignment with \RaggedRight
+\usepackage{ragged2e}
+% enable import of eps pictures using pdflatex
+%\usepackage{epstopdf}
+% enable hyperlinks and bookmarks in PDF file (must typically be loaded as LAST package)
+% if used, print hyperlinks in black and suppress boxes around them 
+\usepackage[colorlinks=true, allcolors=black, bookmarksnumbered=true]{hyperref}
+% to set bookmarks on the first latex run (hyperref needs two),
+% provides addtional options for bookmarks (use carefully!)
+\usepackage{bookmark}
+% Bibliography using classical bibtex
+%\bibliographystyle{alpha}
+\usepackage{enumitem}
+% better: use biblatex! provides much more options
+% use \printbibliography to print the bibliography 
+% (search for \printbibliography in this document and uncomment the line, 
+%  comment out the line for bibtex)
+\usepackage[style=alphabetic,
+backend=bibtex8,		% or use biber or bibtex?
+bibencoding=latin1,	% .bib file in latin1 or utf8 encoding?
+maxbibnames=99			% give full list of authors (up to 99) in bibliography
+]{biblatex}
+\usepackage{subcaption}
+\usepackage{amsthm}
+\usepackage{pdfpages}
+\usepackage{parskip}
+\usepackage{amssymb}
+\usepackage{transparent}
+\usepackage{pifont}
+\usepackage{fontawesome}
+\usepackage{multirow}
+
+
+
+% Define colors
+\definecolor{vert}{RGB}{0,181,0}
+\definecolor{oran}{RGB}{240,74,0}
+\definecolor{viol}{RGB}{134,0,175}
+\definecolor{roug}{RGB}{215,15,0}
+\definecolor{hblue}{RGB}{12,88,90}
+\definecolor{hblueMiddle}{RGB}{166,221,219}
+\definecolor{dgreen}{RGB}{0,153,0}
+
+% Standard commands 
+\newcommand{\norm}[1]{\left| \left | #1 \right | \right |}
+\newcommand{\abs}[1]{\left | #1 \right |}
+\newcommand{\set}[2]{\left\{ #1 \middle|\, #2\right\}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\partialf}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\mbeq}{\overset{!}{=}}
+\newcommand{\mbleq}{\overset{!}{\leq}}
+\newcommand{\mbgeq}{\overset{!}{\geq}}
+\newcommand{\mb}[1]{\overset{!}{#1}}
+\newcommand{\ok}{\ding{52}}
+\newcommand{\nok}{\ding{53}}
+\newcommand{\evalat}[2]{\left.#1 \right \vert_{#2}}
+\newcommand{\contr}{ \;\;\;\;\; \text{ \LARGE \faBolt \normalsize \textit{contradiction}}}
+\newcommand{\imp}{{\color{red} \faExclamationTriangle}}
+\newcommand{\lr}[1]{\left(#1\right)}
+% Special commands
+\renewcommand{\d}{\, \mathrm{d}}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\KL}{\mathcal{K}\mathcal{L}}
+\newcommand{\normc}[1]{\left( \left| \left | #1 \right | \right | \right) }
+\newcommand{\Li}{\mathcal{L}}
+\newcommand{\lev}[1][c]{\mathrm{lev}_{\leq #1}}
+\newcommand{\lecnb}[1]{\marginpar{\hspace{.5cm} \textit{L #1}}}
+\newcommand{\Comment}[1]{ \begin{comment_env}{Comment}
+		#1
+\end{comment_env}}
+%\newcommand{\Comment}[1]{}
+
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\W}{\mathcal{W}}
+\newcommand{\stdMinPrb}[5]{
+	& \underset{#1}{\text{minimize}}
+	& & #2 \\
+	& \text{subject to}
+	& & #3 \\
+	&&& #4 \\
+	&&& #5
+}
+
+\newcommand{\argmin}[1]{
+	\underset{#1}{\mathrm{argmin} \;}
+}
+
+\newcommand{\xmpc}{x_{\mathrm{MPC}}}
+\newcommand{\umpc}{u_{\mathrm{MPC}}}
+\newcommand{\Jmpc}{J^{\mathrm{MPC}}}
+\newcommand{\MPC}{\mathrm{MPC}}
+\newcommand{\kloc}{k^{\mathrm{loc}}}
+\newcommand{\Lf}[1]{L\left(\, #1 \, \right)}
+\newcommand{\Puncon}{P_{\mathrm{uncon}}}
+\renewcommand{\K}{\mathcal{K}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\Nc}{\mathcal{N}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\uncon}{\mathrm{uncon}}
+\newcommand{\sgn}{\mathrm{sgn}}
+\newcommand{\scProd}[2]{\left< #1,\, #2\right>}
+
+% Boxes for theorems aso
+\newtcolorbox[auto counter]{block}{}
+
+\newtcolorbox[use counter from=block]{thm}[2][]{%
+	colback=white,
+	colframe=yellow!90!red,
+	colbacktitle=white!90!yellow,
+	coltitle=black,
+	fonttitle=\bfseries, 
+	title=Theorem~\thetcbcounter:\ #2,
+	#1% For possible options
+}
+
+\newtcolorbox[use counter from=block]{prop}[2][]{%
+	colback=white,
+	colframe=yellow!90!red,
+	colbacktitle=white!90!yellow,
+	coltitle=black,
+	fonttitle=\bfseries, 
+	title=Proposition~\thetcbcounter:\ #2,
+	#1% For possible options
+}
+
+\newtcolorbox[use counter from=block]{lemma}[2][]{%
+	colback=white,
+	colframe=yellow!90!red,
+	colbacktitle=white!90!yellow,
+	coltitle=black,
+	fonttitle=\bfseries, 
+	title=Lemma~\thetcbcounter:\ #2,
+	#1% For possible options
+}
+
+
+\newtcolorbox[use counter from=block]{defi}[2][]{%
+	colback=white,
+	colframe=roug,
+	colbacktitle=white!90!roug,
+	coltitle=black,
+	fonttitle=\bfseries, 
+	title=Definition~\thetcbcounter:\ #2,
+	#1% For possible options
+}
+
+
+
+\newtcolorbox{example}[2][]{%
+	colback=white,
+	colframe=vert,
+	colbacktitle=white!90!vert,
+	coltitle=black,
+	fonttitle=\bfseries, 
+	title= Example #2,
+	#1% For possible options
+}
+
+\newtcolorbox{comment_env}[2][]{%
+	colback=white,
+	colframe=blue!40!black,
+	colbacktitle=white!90!blue,
+	coltitle=black,
+	fonttitle=\bfseries, 
+	title = #2,
+	#1% For possible options
+}
+
+\newtcolorbox{mytcboxBlue}[2][]{%
+	colback=white,
+	colframe=hblue,
+	colbacktitle=hblueMiddle,
+	coltitle=black,
+	fonttitle=\bfseries, 
+	title= #2,
+	#1% For possible options
+}
+
+\newtcolorbox{mytcboxRed}[2][]{%
+	colback=white,
+	colframe=roug,
+	colbacktitle=white!60!roug,
+	coltitle=black,
+	fonttitle=\bfseries, 
+	title= #2,
+	#1% For possible options
+}
+
+\newtcolorbox{mytcboxGreen}[2][]{%
+	colback=white,
+	colframe=vert,
+	colbacktitle=white!90!vert,
+	coltitle=black,
+	fonttitle=\bfseries, 
+	title= #2,
+	#1% For possible options
+}
+
+\newtcolorbox{mytcboxYellow}[2][]{%
+	colback=white,
+	colframe=yellow!90!red,
+	colbacktitle=white!90!yellow,
+	coltitle=black,
+	fonttitle=\bfseries, 
+	title= #2,
+	#1% For possible options
+}
+
+\newenvironment{proofSketch}{\paragraph{Sketch of the proof:}}{\hfill$\square$}
+
