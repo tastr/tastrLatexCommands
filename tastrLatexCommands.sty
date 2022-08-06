@@ -71,7 +71,8 @@ maxbibnames=99			% give full list of authors (up to 99) in bibliography
 \definecolor{dgreen}{RGB}{0,153,0}
 
 % Standard commands 
-\newcommand{\norm}[1]{\left| \left | #1 \right | \right |}
+\DeclareMathOperator*{\esssup}{ess\,sup}
+\newcommand{\norm}[1]{\left |\left | #1 \right |\right |}
 \newcommand{\abs}[1]{\left | #1 \right |}
 \newcommand{\set}[2]{\left\{ #1 \middle|\, #2\right\}}
 \newcommand{\R}{\mathbb{R}}
